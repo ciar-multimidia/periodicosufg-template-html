@@ -5,14 +5,20 @@
 $preto: #212121;
 $cinza: #ededed;
 
-$cores-grafismos: "azul", "verde", "laranja", "magenta", "roxo";
+$cores-grafismos: "azul", "laranja", "magenta", "roxo";
 $n-grafismos: 4;
 
-$azul: #016682;
-$verde: #165B5E;
-$laranja: #953A1E;
-$magenta: #A51948;
-$roxo: #6D185C;
+// $azul: #016682;
+// $laranja: #953A1E;
+// $magenta: #A51948;
+// $roxo: #6D185C;
+
+$cores-livros: (
+	azul: #016682,
+	laranja: #953A1E,
+	magenta: #A51948,
+	roxo: #6D185C
+);
 
 
 /////// MEDIA QUERIES e TAMANHOS
@@ -21,13 +27,22 @@ $smart-maior: 680px;
 $smart-menor: 500px;
 $celular: 380px;
 
-$artigo: 800px;
+$artigo: 760px;
 
 
 /////// IMPORTACOES
 @import "../bourbon/bourbon";
 @import "../padroes/reset";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap');
+
+
+/////// MIXINS
+@mixin flex($dir) {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content($dir);
+}
 
 /****************************************
  * DEFINICOES E FORMATACOES DE TEXTO *
@@ -58,11 +73,6 @@ i, em {
 }
 s, del {
 	text-decoration: line-through;
-}
-
-// paragrafos e formatacoes padrao
-p, article ul, article ol, blockquote, figure {
-	margin-bottom: 1.8em;
 }
 
 small {

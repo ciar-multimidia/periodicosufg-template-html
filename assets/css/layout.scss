@@ -17,15 +17,14 @@ body {
 
 	@for $i from 1 through $n-grafismos {
 		@each $cor in $cores-grafismos {
-			&.grafismo#{$i}.#{$cor} main {
-				@if $cor == "verde" {
-					@if $i == 3 {
-						$cor: 'azul';
-					} @else if $i == 4 {
-						$cor: 'azul';
-					} 
+			&.grafismo#{$i}.#{$cor} {
+				main {  background-image: url('../padroes/grafismo#{$i}_#{$cor}.png'); }
+				header:before { background-color: map-get($cores-livros,$cor); }
+
+				article {
+					hgroup, dl dt, h2, h3, h4, h5, h6 {color: map-get($cores-livros,$cor);}
+					blockquote {border-color: map-get($cores-livros,$cor);}
 				}
-				background-image: url('../padroes/grafismo#{$i}_#{$cor}.png');
 			}
 		}
 	}
@@ -39,15 +38,71 @@ main {
 	background-repeat: repeat-y;
 	background-size: 80px auto;
 	min-height: 100vh;
-	outline: 1px solid;
+	overflow: hidden;
+	// outline: 1px solid;
 }
+
+header {
+	width: 100%;
+	@include flex(space-between);
+	// background: $preto;
+	position: relative;
+	color: white;
+	padding: 10px 10px 10px 0;
+	margin-bottom: 3em;
+	text-transform: uppercase;
+	font-size: .9em;
+
+	&:before { content: ""; top: 0; left: -120px;
+		position: absolute;
+		width: $container; height: 100%;
+	}
+
+	div {
+		position: relative;
+
+		h1 {font-size: inherit; display: inline-block;}
+
+		span {
+			position: relative;
+			margin-left: 10px;
+			&:before {content: "|"; margin-right: 10px;}
+		}
+	}
+}
+
+
+img.icone {width: 26px; height: auto; vertical-align: middle}
 
 article {
 	width: 100%;
-	outline: 1px solid;
+	// outline: 1px solid;
 
-	* {
+	& > * {
 		width: $artigo;
 		max-width: 100%;
+		margin-bottom: 1.8em;
+	}
+
+	p { padding-left: 3em; }
+
+	hgroup {
+		* {margin-bottom: 1em}
+	}
+
+	dl {
+		padding-left: 3em; margin-bottom: 3em;
+		dt { font-weight: bold; }
+		dd { font-size: .8em !important; font-style: italic; margin-bottom: 1.8em}
+	}
+
+	h2, h3, h4, h5, h6 { margin-bottom: 15px; }
+
+	blockquote {
+		margin-left: 6em;
+		border-left: 3px solid ;
+		width: calc(#{$artigo} - 6em);
+
+		p { font-size: .85em; padding-left: 1em;}
 	}
 }
