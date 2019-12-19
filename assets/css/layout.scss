@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@import "padroes/predefinicoes";
+
+
+/////// LAYOUT
+body, html {overflow-x: hidden;}
+body {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 1.7;
+	color: $preto;
+	font-family: 'Open Sans',sans-serif;
+	position: relative;
+	
+	@media (max-width: $smart-maior) { font-size: 16px; }
+
+	@for $i from 1 through $n-grafismos {
+		@each $cor in $cores-grafismos {
+			&.grafismo#{$i}.#{$cor} main {
+				@if $cor == "verde" {
+					@if $i == 3 {
+						$cor: 'azul';
+					} @else if $i == 4 {
+						$cor: 'azul';
+					} 
+				}
+				background-image: url('../padroes/grafismo#{$i}_#{$cor}.png');
+			}
+		}
+	}
+}
+
+main {
+	width: $container;
+	max-width: 100%; margin: 0 auto;
+	padding: 20px 10px 20px 120px;
+	background-position: top left;
+	background-repeat: repeat-y;
+	background-size: 80px auto;
+	min-height: 100vh;
+	outline: 1px solid;
+}
+
+article {
+	width: 100%;
+	outline: 1px solid;
+
+	* {
+		width: $artigo;
+		max-width: 100%;
+	}
+}
