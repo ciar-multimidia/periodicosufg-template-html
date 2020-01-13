@@ -18,18 +18,20 @@ body {
 	@for $i from 1 through $n-grafismos {
 		@each $cor in $cores-grafismos {
 			&.grafismo#{$i}.#{$cor} {
-				main {  background-image: url('../padroes/grafismo#{$i}_#{$cor}.png'); }
+				main {  background-image: url('http://temporario.ciar.ufg.br/portalperiodicos/htmlrevistas/padroes/grafismo#{$i}_#{$cor}.png'); }
 				header:before { background-color: map-get($cores-livros,$cor); }
+				footer {color: map-get($cores-livros,$cor);}
 
 				article {
-					hgroup, dl dt, h2, h3, h4, h5, h6 {color: map-get($cores-livros,$cor);}
-					blockquote {border-color: map-get($cores-livros,$cor);}
+					hgroup, dl dt, h2, h3, h4, h5, h6, figure strong {color: map-get($cores-livros,$cor);}
+					blockquote, table, table tr, table tr th, table tr td {border-color: map-get($cores-livros,$cor);}
 				}
 			}
 		}
 	}
 }
 
+// area util de conteudo
 main {
 	width: $container;
 	max-width: 100%; margin: 0 auto;
@@ -42,16 +44,16 @@ main {
 	// outline: 1px solid;
 }
 
-header {
+// cabecalho e fim do artigo
+header, footer {
 	width: 100%;
 	@include flex(space-between);
-	// background: $preto;
 	position: relative;
 	color: white;
 	padding: 10px 10px 10px 0;
 	margin-bottom: 3em;
 	text-transform: uppercase;
-	font-size: .9em;
+	font-size: .85em;
 
 	&:before { content: ""; top: 0; left: -120px;
 		position: absolute;
@@ -71,9 +73,14 @@ header {
 	}
 }
 
+footer {margin: 3em 0 0; font-weight: bold;}
 
+
+// imagem de icone de perfil dos autores
 img.icone {width: 26px; height: auto; vertical-align: middle}
 
+
+// formatacoes do artigo
 article {
 	width: 100%;
 	// outline: 1px solid;
@@ -100,9 +107,38 @@ article {
 
 	blockquote {
 		margin-left: 6em;
-		border-left: 3px solid ;
+		border-left: 5px solid ;
 		width: calc(#{$artigo} - 6em);
 
 		p { font-size: .85em; padding-left: 1em;}
+	}
+
+
+	figure {
+		figcaption {
+			p {padding-left: 0; font-size: 0.85em; margin-top: .7em;}
+		}
+	}
+
+
+	table {
+		border: 2px solid;
+		border-top-width: 4px;
+		border-left: 0;
+		border-bottom: 0;
+
+		tr {
+			border-bottom: 2px solid;
+
+			td, th {
+				padding: 8px; border-left: 2px solid;
+
+				&:first-child {border: 0;}
+			}
+		}
+
+		th {
+			font-weight: bold; text-align: left;
+		}
 	}
 }
