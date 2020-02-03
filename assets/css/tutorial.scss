@@ -1,0 +1,213 @@
+@charset "UTF-8";
+@import "padroes/predefinicoes";
+
+
+/////// LAYOUT
+body, html {overflow-x: hidden;}
+body {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 1.7;
+	color: $preto;
+	font-family: 'Open Sans',sans-serif;
+	position: relative;
+	
+	@media (max-width: $smart-maior) { font-size: 16px; }
+}
+// area util de conteudo
+main {
+	width: 1200px;
+	max-width: 100%; margin: 0 auto;
+	padding: 20px 0 20px 120px;
+	background-position: top left;
+	background-repeat: repeat-y;
+	background-size: 80px auto;
+	min-height: 100vh;
+	overflow: hidden;
+	background-image: url('../padroes/grafismo2_azul.png');
+}
+
+// cabecalho e fim do artigo
+header, footer {
+	width: 100%;
+	@include flex(space-between);
+	position: relative;
+	color: white;
+	padding: 10px 10px 10px 0;
+	margin-bottom: 3em;
+	text-transform: uppercase;
+	font-size: .85em;
+
+	&:before { content: ""; top: 0; left: -120px;
+		position: absolute;
+		width: 1200px; height: 100%;
+		background-color: map-get($cores-livros,'azul');
+	}
+
+	div {
+		position: relative;
+
+		h1 {font-size: inherit; display: inline-block;}
+
+		span {
+			position: relative;
+			margin-left: 10px;
+			&:before {content: "|"; margin-right: 10px;}
+		}
+	}
+}
+
+footer {margin: 3em 0 0; font-weight: bold; color: map-get($cores-livros,'azul');}
+
+
+// imagem de icone de perfil dos autores
+img.icone {width: 26px; height: auto; vertical-align: middle}
+
+
+// lateral em menu
+aside {
+	width: 270px;
+	position: fixed;
+	top: 80px;
+
+	h1 {font-size: 1.2em; color:map-get($cores-livros,'azul'); }
+
+	nav {
+		margin: 20px 0;
+
+		a {
+			color: map-get($cores-livros,'azul') !important; display: block;
+
+			&:before {content:'\00BB'; display: inline-block; margin-right: 10px; color: $preto !important}
+		}
+	}
+	
+	
+	h5 {margin: 0; text-align: center; text-transform: uppercase; font-size: .75em;}
+
+	.botoes {
+		margin-top: .5em;
+		@include flex(space-between);
+		@include flex-wrap(nowrap);
+
+		a {
+			display: block; padding: 4px 10px; width: calc(50% - 3px); text-align: center;
+			background: map-get($cores-livros,'azul'); color: white !important;
+			text-transform: uppercase; font-weight: bold;
+			text-decoration: none !important; font-size: 13px;
+
+			&:hover {
+				background: darken(map-get($cores-livros,'azul'),5%);
+			}
+		}
+	}
+}
+
+
+// formatacoes do artigo
+article {
+	width: $artigo;
+	float: right;
+	
+	hgroup, dl dt, h2, h4, figure strong, a:link, a:hover, a:visited {color: map-get($cores-livros,'azul');}
+	blockquote, table, table tr, table tr th, table tr td {border-color: map-get($cores-livros,'azul');}
+
+	& > * {
+		width: 100%;
+		max-width: 100%;
+		margin-bottom: 1.8em;
+	}
+
+	a:link {
+		text-decoration: underline;
+
+		&:hover {text-decoration: none;}
+	}
+
+	p { padding-left: 3em; 
+		& > code { background: #ffdfdf; color: #ca3232;border-radius: 4px; font-size: .9em; padding: 1px 4px; white-space: pre-line; word-break: break-all;}
+	}
+
+	hgroup {
+		* {margin-bottom: 1em}
+	}
+
+	dl {
+		padding-left: 3em; margin-bottom: 3em;
+		dt { font-weight: bold; }
+		dd { font-size: .8em !important; font-style: italic; margin-bottom: 1.8em}
+	}
+
+	h2, h3, h4, h5, h6 { margin-bottom: 15px; font-weight: bold;}
+
+	h2 { padding-top: 80px; margin-top: -90px}
+
+	blockquote {
+		border-left: 5px solid ; position: relative; margin-top: 40px; padding-left: 1em;
+		&:before {content: "visualizacao"; display: block; font-style: italic; font-size: 14px; position: absolute; top: -25px; left: -7px;} 
+
+		p { font-size: .95em; padding-left: 0;}
+	}
+
+
+	figure {
+		figcaption {
+			font-size: 0.85em; margin-top: .7em;
+			p {padding-left: 0;}
+		}
+	}
+
+
+	table {
+		border: 2px solid;
+		border-top-width: 4px;
+		border-left: 0;
+		border-bottom: 0;
+		caption-side: bottom;
+
+		caption {text-align: left; padding: .5em 1em; font-size: .85em;}
+
+		tr {
+			border-bottom: 2px solid;
+
+			td, th {
+				padding: 8px; border-left: 2px solid;
+
+				&:first-child {border: 0;}
+
+				p:last-of-type {margin-bottom: 0}
+			}
+		}
+
+		th {
+			font-weight: bold; text-align: left;
+		}
+	}
+}
+
+
+.grafismos-lista {
+	width: 100%;
+	border-width: 2px;
+
+	tr td {width: 25%}
+
+	@for $i from 1 through $n-grafismos {
+		tr td.grafismo#{$i} {
+			background-image: url('../padroes/grafismo#{$i}_azul.png');
+			height: 120px; background-position: top left;
+			background-size: 80px auto;
+			@include filter(grayscale(100%));
+		}
+	}
+
+	@each $cor in $cores-grafismos {
+		tr td.#{$cor} {
+			background-image: url('../padroes/grafismo2_#{$cor}.png');
+			@include filter(grayscale(0%));
+		}
+	}
+}
+
+@import "padroes/highlight";

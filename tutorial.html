@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Guia de diagramação HTML - Portal de Periódicos UFG</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/tutorial.css">
+	<!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->	
+</head>
+<body>
+
+
+<!-- ------------------------------- 
+	INICIO - AREA PRINCIPAL 
+------------------------------- -->
+<main>
+
+	<header>
+		<div class="nome-revista">
+			<h1>GUIA DE DIAGRAMAÇÃO HTML</h1>
+		</div>
+		<div class="doi">Ciar UFG</div>
+	</header>
+
+
+	<aside>
+		<h1>Navegue pelos tópicos:</h1>
+		<nav>
+			<a href="#formatacoes-basicas">Formatações básicas</a>
+			<a href="#inserir-links">Inserção de links</a>
+			<a href="#inserir-imagens">Inserção de imagem</a>
+			<a href="#inserir-tabelas">Inserção de tabela</a>
+			<a href="#cores">Escolha de cores e grafismos</a>
+			<a href="#dados-revista">Inserir dados da revista</a>
+			<a href="#titulo-artigo">Inserir título do artigo</a>
+			<a href="#nota-rodape">Inserir nota de rodapé</a>
+		</nav>
+
+		<h5>Acesso ao template</h5>
+		<div class="botoes">
+			<a href="template.html.zip" class="botao" download="">Baixar e editar</a>
+			<a href="template.html" target="_blank" class="botao">Ver Modelo</a>
+		</div>
+	</aside>
+	
+
+	<article role="article">
+
+		<hgroup>
+			<h1 id="tags-html">Introdução</h1>
+		</hgroup>
+
+		<p>Este é o tutorial dedicado para uso do Template HTML definido pela Biblioteca Central e desenvolvido pelo Ciar UFG para o Portal de Periódicos UFG.</p>
+
+		<p>Os softwares recomendados para diagramação dos artigos são:</p>
+
+		<ul>
+			<li><a href="https://www.sublimetext.com/3" target="_blank">Sublime Text</a> (mac / win)</li>
+			<li><a href="http://brackets.io/" target="_blank">Brackets</a> (mac / win)</li>
+		</ul>
+
+		<hr>
+
+
+		<hgroup>
+			<h1 id="tags-html">Guia de tags HTML para auxílio da diagramação</h1>
+		</hgroup>
+
+		
+
+		<h2 id="formatacoes-basicas">Formatações básicas</h2>
+
+		<h3 id="negrito">Texto em negrito</h3>
+		<pre><code>&lt;strong&gt;Texto em negrito aqui&lt;/strong&gt;</code></pre>
+		<blockquote><p><strong>Texto em negrito aqui</strong></p></blockquote>
+
+		
+
+		<h3 id="italico">Texto em itálico</h3>
+		<pre><code>&lt;em&gt;Texto em itálico aqui&lt;/em&gt;</code></pre>
+		<blockquote><p><em>Texto em itálico aqui</em></p></blockquote>
+
+
+		
+
+		<h3 id="paragrafo">Texto dentro de um parágrafo</h3>
+		<pre><code>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;</code></pre>
+		<blockquote>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</blockquote>
+
+
+		<h4 id="exemplo-em-paragrafo">Exemplos de formatações num parágrafo</h4>
+		<pre><code>&lt;p&gt;Lorem ipsum dolor sit amet, &lt;strong&gt;consectetur&lt;/strong&gt; elit, sed do eiusmod tempor incididunt ut labore et &lt;em&gt;dolore&lt;/em&gt; magna aliqua. Ut enim ad minim veniam.&lt;/p&gt;</code></pre>
+		<blockquote>
+			<p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> elit, sed do eiusmod tempor incididunt ut labore et <em>dolore</em> magna aliqua. Ut enim ad minim veniam.</p>
+		</blockquote>
+
+		
+
+
+		<h3 id="subtitulos">Títulos no decorrer do artigo</h3>
+		<pre><code>&lt;h2&gt;T&iacute;tulo do texto n&iacute;vel 2&lt;/h2&gt;
+&lt;h3&gt;T&iacute;tulo do texto n&iacute;vel 3&lt;/h3&gt;
+&lt;h4&gt;...&lt;/h4&gt;
+&lt;h5&gt;...&lt;/h5&gt;
+&lt;h6&gt;...&lt;/h6&gt;</code></pre>
+		<blockquote>
+			<h2>Título do texto nível 2</h2>
+			<h3>Título do texto nível 3</h3>
+			<h4>Título do texto nível 4</h4>
+			<h5>Título do texto nível 5</h5>
+			<h6>Título do texto nível 6</h6>
+		</blockquote>
+
+		<p>Perceba que, o subtítulo ganha uma hierarquia (demonstrada em tamanho de texto) para cada tag especificada. <u>Quanto maior número da tag, menor é o nível de importância do título</u>. No decorrer do texto há a possibilidade de utilizar as tags <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code> e <code>h6</code>. Não há a possibilidade de inserir números maiores que 6. Caso tenha uma hierarquia de título além da 6ª, pode utilizar um parágrafo contendo o subtítulo <a href="#negrito">em negrito</a>.</p>
+
+		<p><strong>Importante:</strong> não utilize a tag <code>h1</code> no decorrer do artigo. Esta tag é destinada apenas ao <a href="#titulo-artigo">título principal do artigo</a>.</p>
+
+
+		
+
+		<h2 id="inserir-links">Inserção de links</h2>
+		<pre><code>&lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;nome do link aqui&lt;/a&gt;</code></pre>
+		<blockquote>
+			<p><a href="http://google.com" target="_blank">nome do link aqui</a></p>
+		</blockquote>
+
+		<p>O atributo <code>target=""</code> é o "alvo" do link, ao inserir <code>_blank</code> dentro do atributo, o link abrirá em uma nova aba vazia. Para abrir na mesma página, basta retirar o atributo por completo.</p>
+
+		
+
+		<h2 id="inserir-imagens">Inserção de imagem</h2>
+		<pre><code>&lt;figure&gt;
+	&lt;img src=&quot;http://link-imagem-aqui&quot; alt=&quot;Descri&ccedil;&atilde;o da imagem&quot;&gt;
+	&lt;figcaption&gt;Legenda da imagem ser&aacute; inserida aqui.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+		<blockquote>
+			<figure>
+			<img src="http://ufg.treinamento.emnuvens.com.br/revciar/article/download/1453/724/5996-1" alt="Descrição da imagem">
+			<figcaption>Legenda da imagem será inserida aqui.</figcaption>
+			</figure>
+		</blockquote>
+
+		<p>A tag <code>figure</code> indica que há uma figura no documento, da qual será chamada pela tag <code>img</code> &mdash; da qual precisará conter a descrição completa e detalhada da figura, através do atributo <code>alt=""</code> para fins de acessibilidade (leitores de tela).</p>
+
+		<p>A tag <code>figcaption</code> indica quando há uma legenda na figura.</p>
+
+		<p>O link da imagem a ser inserido no atributo <code>src=""</code> deve ser hospedado dentro do OJS, na edição da publicação da versão HTML do artigo. O link da imagem começará com o <em>link inteiro</em> do artigo, seguido pelo número do upload do artigo que será demonstrado no painel, conforme o exemplo abaixo:</p>
+
+		<pre style="white-space: pre-line; word-break: break-all;"><code>&lt;img src=&quot;<u>http://ufg.treinamento.emnuvens.com.br/revciar/article/download/1453/724/</u><strong>5996-1</strong>&quot;&gt;</code></pre>
+
+		<p>Acima, o link <code>http://ufg.treinamento.emnuvens.com.br/revciar/article/download/1453/724/</code> representa o link do artigo, enquanto o número <code>5996-1</code> representa o código da imagem.</p>
+
+		<img src="assets/imgs/exemplo-codigoimagems.jpg" alt="">
+
+		
+
+		<h2 id="inserir-tabelas">Inserção de tabela</h2>
+		<pre><code>&lt;table&gt;
+  &lt;caption&gt;Legenda da tabela&lt;/caption&gt;			
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nome Tabela 1&lt;/th&gt;
+      &lt;th&gt;Nome Tabela 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Celula 1 - Tabela 1&lt;/td&gt;
+      &lt;td&gt;Celula 1 - Tabela 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Celula 2 - Tabela 1&lt;/td&gt;
+      &lt;td&gt;Celula 2 - Tabela 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Celula 3 - Tabela 1&lt;/td&gt;
+      &lt;td&gt;Celula 3 - Tabela 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+		<blockquote><table style="width: 100%">
+  <thead>
+    <tr>
+      <th>Nome Tabela 1</th>
+      <th>Nome Tabela 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Celula 1 - Tabela 1</td>
+      <td>Celula 1 - Tabela 2</td>
+    </tr>
+    <tr>
+      <td>Celula 2 - Tabela 1</td>
+      <td>Celula 2 - Tabela 2</td>
+    </tr>
+    <tr>
+      <td>Celula 3 - Tabela 1</td>
+      <td>Celula 3 - Tabela 2</td>
+    </tr>
+  </tbody>
+  <caption>Legenda da tabela</caption>
+</table></blockquote>
+
+		<p>Uma tabela é definida pela tag <code>table</code>, da qual será compostas por linhas (tag <code>tr</code>) e dados das colunas (tag <code>td</code>). O que define o cabeçalho (ou nome das colunas) desta tabela é pelas tags <code>thead</code> e <code>th</code> &mdash; que vem do inglês <em>head</em>, de "cabeça". O conteúdo das colunas são compostas pela tag <code>tbody</code> &mdash; que vem do inglês <em>body</em>, de "corpo".</p>
+
+		<p>Caso a tabela tenha uma legenda, a mesma precisa vir no início da tabela, obrigatariamente após a abertura da tag <code>table</code>. A legenda precisa ser envolvida pela tag <code>caption</code> e visualmente será mostrada no final de tabela, segundo a proposta de layout.</p>
+
+		<p>A tabela pode conter <a href="#inserir-links">links</a> e dentre outras <a href="#formatacoes-basicas">formatações básicas de texto</a>. Só é necessário <a href="#paragrafo">parágrafo</a> dentro das celulas caso haja necessidade de textos grandes, com mais de 1 parágrafo dentro do texto.</p>
+
+
+		<h2 id="divisoria">Linha divisória</h2>
+		<pre><code>&lt;hr&gt;</code></pre>
+
+		<p>Acrescenta uma linha discreta para dividir o conteúdo, exemplificada abaixo.</p>
+	
+		<hr>
+
+		<hgroup>
+			<h1 id="cores-e-ferramentas">Instruções de uso para habilitar cores e ferramentas no artigo</h1>
+		</hgroup>
+
+		<h2 id="cores">Escolha de cores e grafismos</h2>
+		<pre><code>&lt;body class=&quot;grafismo1 laranja&quot;&gt;</code></pre>
+
+		<table class="grafismos-lista">
+			<caption>nome dos grafismos</caption>
+			<tr>
+				<td class="grafismo1"></td>
+				<td class="grafismo2"></td>
+				<td class="grafismo3"></td>
+				<td class="grafismo4"></td>
+			</tr>
+			<tr>
+				<td>grafismo1</td>
+				<td>grafismo2</td>
+				<td>grafismo3</td>
+				<td>grafismo4</td>
+			</tr>
+		</table>
+
+		<table class="grafismos-lista">
+			<caption>nome das cores</caption>
+			<tr>
+				<td class="grafismo2 azul"></td>
+				<td class="grafismo2 laranja"></td>
+				<td class="grafismo2 rosa"></td>
+				<td class="grafismo2 roxo"></td>
+			</tr>
+			<tr>
+				<td>azul</td>
+				<td>laranja</td>
+				<td>rosa</td>
+				<td>roxo</td>
+			</tr>
+		</table>
+
+		<p>Dentro do atributo <code>class=""</code> da tag <code>body</code>, inserida logo nas primeiras linhas do do documento, acrescente o <em>nome do grafismo</em> primeiro seguido pelo <em>nome da cor</em>, separadas por um espaço em branco. São 16 combinações diferentes. Veja abaixo outros exemplos de aplicação.</p>
+
+		<pre><code>&lt;body class=&quot;grafismo4 azul&quot;&gt;</code></pre>
+		<pre><code>&lt;body class=&quot;grafismo2 rosa&quot;&gt;</code></pre>
+		<pre><code>&lt;body class=&quot;grafismo2 roxo&quot;&gt;</code></pre>
+		<pre><code>&lt;body class=&quot;grafismo3 laranja&quot;&gt;</code></pre>
+
+
+		
+
+		<h2 id="dados-revista">Inserir dados da revista</h2>
+		<pre><code>&lt;!-- nome da revista e dados do DOI --&gt;
+&lt;header&gt;
+	&lt;div class=&quot;nome-revista&quot;&gt;
+		&lt;h1&gt;ECONOMIA DO CENTRO-OESTE&lt;/h1&gt;
+		&lt;span&gt;ISSN: 2317-6784&lt;/span&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;doi&quot;&gt;DOI: 10.5216/REVUFG.V19I23.58274&lt;/div&gt;
+&lt;/header&gt;</code></pre>
+
+		<p>Os dados principais da revista encontram-se na tag <code>header</code> do conteúdo principal do documento. Este cabecalho informará o nome da revista, ISSN e número do DOI do artigo em questão.</p>
+
+		<p>Insira o nome da revista entre as tags <code>h1</code>, e os dados de ISSN nas tags <code>span</code> aplicada logo na linha seguinte. O DOI deve ser inserido dentro da tag <code>div class="doi"</code>, conforme demonstrado acima.</p>
+
+		
+
+		<h2 id="titulo-artigo">Inserir título do artigo</h2>
+		<pre><code>&lt;!-- area de artigo --&gt;
+&lt;article role=&quot;article&quot;&gt;
+	&lt;!-- titulo artigo --&gt;
+	&lt;hgroup&gt;
+
+		&lt;!-- titulo principal na lingua nativa --&gt;
+		&lt;h1&gt;Qualifica&ccedil;&atilde;o e internacionaliza&ccedil;&atilde;o empresarial: Atendimento das demandas de clientes do programa PEIEX/UNIVALI&lt;/h1&gt;
+
+		&lt;!-- titulo principal em linguas secundarias --&gt;
+		&lt;h2&gt;Quality Tools Applied in a Craft Production Unit in the Municipality of Navira&iacute;-MS&lt;/h2&gt;
+		&lt;h2&gt;Herramientas de Calidad Aplicadas en una Unidad Productora de Sorvetes Artesanales en el Municipio de Navira&iacute;-MS&lt;/h2&gt;
+
+	&lt;/hgroup&gt;</code></pre>
+
+
+		<p>O título principal do artigo encontra-se logo após a abertura da tag <code>article</code>, envolvida pela tag <code>hgroup</code> &mdash; tag destinada para um grupo de títulos.</p>
+
+		<p>O título principal deve ser envolvida pela tag <code>h1</code>, enquanto suas traduções devem ser aplicadas pela tag <code>h2</code>, conforme o exemplo acima.</p>
+
+
+		<h2 id="nota-rodape">Inserir nota de rodapé</h2>
+		<p>Dentro do parágrafo, logo após a palavra que contém o número referente à nota de rodapé, insira o seguinte código:</p>
+
+		<pre><code>&lt;button class=&quot;abrir_nota&quot; aria-label=&quot;nota de rodap&eacute;&quot; data-nota=&quot;1&quot;&gt;1&lt;/button&gt;</code></pre>
+
+		<p>Nos dois locais onde há o número <strong>1</strong> inserido acima, troque pelo número referente à nota de rodapé do artigo. Em seguida, para inserir o conteúdo da nota de rodapé, vá até o final do documento (conforme está mostrado e comentado no template) insira o seguinte código:</p>
+
+		<pre><code>&lt;!-- nota 1 --&gt;
+&lt;div class=&quot;modal&quot; data-nota=&quot;1&quot; aria-hidden=&quot;true&quot; aria-label=&quot;Nota de rodap&eacute; <strong>1</strong>&quot; aria-describedby=&quot;explicaNota&quot; role=&quot;dialog&quot;&gt;
+    &lt;div role=&quot;document&quot;&gt;
+    	&lt;p&gt;Coloque aqui o conte&uacute;do textual da nota de rodap&eacute;.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;fechar_nota&quot; title=&quot;Fechar&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+		<p>Todo o código já está adaptado para acessibilidade, portanto, só é necessário inserir o número da nota de rodapé no atributo <code>aria-label=&quot;Nota de rodap&eacute; ...&quot;</code> e colar o conteúdo da nota dentro do parágrafo informado pela tag <code>div role=&quot;document&quot;</code>.</p>
+
+
+
+
+
+	</article>
+	<div class="clear">&nbsp;</div>
+</main>
+
+
+
+<script src="https://producao.ciar.ufg.br/cdn/jquery/jquery-latest.js"></script>
+<script src="assets/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

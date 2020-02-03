@@ -18,12 +18,12 @@ body {
 	@for $i from 1 through $n-grafismos {
 		@each $cor in $cores-grafismos {
 			&.grafismo#{$i}.#{$cor} {
-				main {  background-image: url('http://temporario.ciar.ufg.br/portalperiodicos/htmlrevistas/padroes/grafismo#{$i}_#{$cor}.png'); }
+				main {  background-image: url('https://producao.ciar.ufg.br/projetos/periodicosufg/template/assets/padroes/grafismo#{$i}_#{$cor}.png'); }
 				header:before { background-color: map-get($cores-livros,$cor); }
 				footer {color: map-get($cores-livros,$cor);}
 
 				article {
-					hgroup, dl dt, h2, h3, h4, h5, h6, figure strong {color: map-get($cores-livros,$cor);}
+					hgroup, dl dt, h2, h3, h4, h5, h6, figure strong, a:link {color: map-get($cores-livros,$cor);}
 					blockquote, table, table tr, table tr th, table tr td {border-color: map-get($cores-livros,$cor);}
 				}
 			}
@@ -91,6 +91,13 @@ article {
 		margin-bottom: 1.8em;
 	}
 
+	a:link {
+		text-decoration: underline;
+
+		&:hover {text-decoration: none;}
+	}
+
+
 	p { padding-left: 3em; }
 
 	hgroup {
@@ -103,20 +110,21 @@ article {
 		dd { font-size: .8em !important; font-style: italic; margin-bottom: 1.8em}
 	}
 
-	h2, h3, h4, h5, h6 { margin-bottom: 15px; }
+	h2, h3, h4, h5, h6 { margin-bottom: 15px; font-weight: bold;}
 
 	blockquote {
 		margin-left: 6em;
-		border-left: 5px solid ;
+		border-left: 5px solid ; padding-left: 1em;
 		width: calc(#{$artigo} - 6em);
 
-		p { font-size: .85em; padding-left: 1em;}
+		p { font-size: .85em; padding-left: 0;}
 	}
 
 
 	figure {
 		figcaption {
-			p {padding-left: 0; font-size: 0.85em; margin-top: .7em;}
+			font-size: 0.85em; margin-top: .7em;
+			p {padding-left: 0;}
 		}
 	}
 
@@ -126,6 +134,9 @@ article {
 		border-top-width: 4px;
 		border-left: 0;
 		border-bottom: 0;
+		caption-side: bottom;
+
+		caption {text-align: left; padding: .5em 1em; font-size: .85em;}
 
 		tr {
 			border-bottom: 2px solid;
@@ -134,6 +145,8 @@ article {
 				padding: 8px; border-left: 2px solid;
 
 				&:first-child {border: 0;}
+
+				p:last-of-type {margin-bottom: 0}
 			}
 		}
 
